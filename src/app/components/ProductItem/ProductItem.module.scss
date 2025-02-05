@@ -1,0 +1,63 @@
+.productContainerVertical {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  border: 2px solid lavender;
+
+  .productImage {
+    height: auto;
+    width: 100%;
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    padding: 0.2rem 0 0 0;
+
+    p {
+      margin: 0;
+    }
+  
+    .brand {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+    .name {
+      margin: 0.4rem 0;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+    .price {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  
+    .buttonContainer {
+      height: 3.5rem;
+      width: 100%;
+      margin-top: 0.8rem;
+      border: 1px solid grey;
+      border-radius: 2.5rem;
+    }
+  }
+}
+
+.productContainerHorizontal {
+  @extend .productContainerVertical;
+  width: 35rem;
+  flex-direction: row;
+
+  .productImage {
+    width: 15rem;
+  }
+  .productInfo {
+    padding: 0 0 0 0.7rem;
+
+    .buttonContainer {
+      margin-top: 2rem;
+    }
+  }
+}
