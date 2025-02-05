@@ -1,0 +1,304 @@
+/* CSS RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* EXTRA RESET */
+i, em {
+	font-style: italic;
+}
+
+b, strong {
+	font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: disc;
+  margin: 1rem 0 2rem 3rem;
+}
+
+li {
+  margin: 0.7rem 0;
+}
+
+input,
+textarea,
+select {
+  all: unset;
+}
+
+button {
+	color: inherit;
+	background-color: inherit; 
+	display: inline-block;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+} 
+
+button:focus {
+  outline: none;
+  outline-offset: 0;
+}
+/* END CSS RESET */
+
+
+/* START CODE */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.8rem;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.3;
+  color: $black;
+  background-color: $websiteBackground;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 2.4rem;
+  color: $primaryColor;
+}
+
+h1 {
+  margin: 1rem 0 1.5rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 3rem;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 500;
+  color: $textColor;
+}
+
+h4 {
+  margin-bottom: 0.3rem;
+  font-size: 1.8rem;
+}
+
+h5 {
+  margin-bottom: -0.7rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: $textColor;
+}
+
+p {
+  margin: 2.5rem 0;
+}
+
+a {
+  color: $contrastColor;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: 0.8em;
+}
+
+sup {
+  margin-left: 0.2rem;
+  font-size: 0.8em;
+  vertical-align: super;
+}
+
+img {
+  height: 100%;
+}
+
+footer {
+  background-color: #EEE;
+}
+
+.button {
+  display: inline-block;
+  margin: 0.4rem 0;
+  padding: 0.8rem 2.5rem;
+  color: $white;
+  background-color: $secondaryColor;
+  border-radius: 5rem;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.semiBold {
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.center {
+  text-align: center;
+}
+
+.text12 {
+  font-size: 1.2rem;
+}
+
+.text14 {
+  font-size: 1.4rem;
+}
+
+.text16 {
+  font-size: 1.6rem;
+}
+
+.miniDelimiter {
+  height: 0.8rem;
+}
+
+.smallDelimiter {
+  height: 1.5rem;
+}
+
+.delimiter {
+  height: 3rem;
+}
+
+.bigDelimiter {
+  height: 5rem;
+}
+
+input,
+select,
+::placeholder {
+  font-size: 1.6rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.8rem 1.2rem;
+  background-color: $white;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: grey;
+}
+
+:hover {
+  transition: all 0.2s ease-in-out;
+}
+
+//Remove arrows on type number
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+
+// LAYOUT
+.surroundingContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  
+  //width: 50%;
+  //margin: 0 0 0 auto;
+}
+
+.surroundAllPages {
+  flex: 1;
+  margin: 0 auto;
+  width: 100%;
+
+  .globalMargin {
+    margin: $globalMargin
+  }
+}
+// END LAYOUT
+
+// Delete later
+.center404 {
+  margin: 2rem;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.clearFloat {
+  clear: both;
+}

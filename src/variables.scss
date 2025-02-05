@@ -1,0 +1,48 @@
+// Variables
+$maxWidthScreen: 1900px;
+$smallScreen: 800px;
+$notSupportedScreenSize: 315px;
+$globalMargin: 30px;
+$navbarHeight: 8.5rem;
+$containerWidth: 110rem;
+
+
+// Colors
+$primaryColor: #3B71CA;
+$secondaryColor: #54B4D3;
+$contrastColor: yellow;
+
+$black: #191919;
+$white: #FFF;
+$green: #14A44D;
+$textColor: #191919;
+$greyText: #666;
+
+$link: hotpink;
+$hover: #7D26CD;
+$disabled: #D8DBE0;
+$disabledText: #9FA6B2;
+
+$errorColor: #B00020;
+$websiteBackground: #F2F2F2;
+
+
+
+// Media Queries
+@mixin mq($mqValue...) {
+	@if length($mqValue) == 1 {
+		@media screen and (max-width: nth($mqValue, 1)) {
+			@content;
+		}
+	}
+	@if length($mqValue) == 2 {
+		@media screen and (min-width: nth($mqValue, 1)) and (max-width: nth($mqValue, 2)) {
+			@content;
+		}
+	}
+	@if length($mqValue) == 3 {
+		@media screen and (min-width: nth($mqValue, 3)) {
+			@content;
+		}
+	}
+}
