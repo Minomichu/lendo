@@ -1,4 +1,6 @@
-.scrollPage {
-  height: 200rem;
-  background: moccasin;
+.productsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
