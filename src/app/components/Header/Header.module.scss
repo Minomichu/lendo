@@ -1,0 +1,27 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $headerHeight;
+  padding: 0 2rem;
+  background: lavender;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: 10;
+
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  transform: translateY(0);
+
+  &.visible {
+    transform: translateY(0);
+  }
+
+  &:not(.visible) {
+    transform: translateY(-100%);
+  }
+
+  .cartIcon {
+    cursor: pointer;
+  }
+}
