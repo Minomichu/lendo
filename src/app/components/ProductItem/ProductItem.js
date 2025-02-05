@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './ProductItem.module.scss'
 
-const ProductItem = ({ brand, name, price }) => {
+const ProductItem = ({ brand, name, price, inStock }) => {
 
   const itemAdded = false
   const horizontal = false
@@ -10,7 +10,10 @@ const ProductItem = ({ brand, name, price }) => {
   const alt = "alt"
   return ( 
     <div
-      className={horizontal ? styles.productContainerHorizontal : styles.productContainerVertical}
+      className={`
+        ${horizontal ? styles.productContainerHorizontal : styles.productContainerVertical} 
+        ${!inStock ? styles.outOfStock : ''}
+      `}
     >
       <Image
         src={image}
@@ -27,8 +30,8 @@ const ProductItem = ({ brand, name, price }) => {
         </div>
         <div className={styles.buttonContainer}>
           {!itemAdded ? (
-            <button className={styles.addToCart}></button>
-          ) : (
+            <button className={styles.addToCart}>{inStock ? 'Buy' : 'Out of stock'}</button>
+              ) : (
             <>
               <button>-</button>
               <input 
@@ -41,7 +44,7 @@ const ProductItem = ({ brand, name, price }) => {
         </div>
       </div>
     </div>
-  )
+   )
 }
  
 export default ProductItem
