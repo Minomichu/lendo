@@ -1,7 +1,8 @@
 import ProductItem from '../ProductItem/ProductItem'
 import styles from './ProductList.module.scss'
 
-const ProductList = ({ columnView, productsInList, horizontal, productItemWidth, cartView }) => {
+
+const ProductList = ({ columnView, productsInList, horizontal, productItemWidth, cartView, useProductSlug }) => {
   return ( 
     <ul className={columnView ? styles.columnContainer : styles.rowContainer}>
       {productsInList.map((product) => (
@@ -20,6 +21,7 @@ const ProductList = ({ columnView, productsInList, horizontal, productItemWidth,
             horizontal={horizontal}
             productItemWidth={productItemWidth}
             cartView={cartView}
+            useProductSlug={useProductSlug}
           />
         </li>
       ))}

@@ -33,6 +33,7 @@ export default function Home() {
         productsInList={filteredProducts}
         columnView={false}
         horizontal={false}
+        useProductSlug
       />
     </div>
   )

@@ -1,9 +1,22 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import { useCart } from '@/context/CartContext'
+import { createSlug } from '@/app/utils/utils'
 import BinIcon from '@/app/icons/bin'
 import styles from './ProductItem.module.scss'
 
-const ProductItem = ({ id, brand, name, price, inStock=true, horizontal=true, productItemWidth, cartView=false }) => {
+const ProductItem = ({ 
+  id, 
+  brand, 
+  name, 
+  price, 
+  inStock=true,
+  horizontal=true, 
+  productItemWidth, 
+  cartView=false, 
+  singlePage, 
+  useProductSlug=false,
+}) => {
   const { cartItems, setCartItems, getCartItemQuantity } = useCart()
 
   const productInCart = cartItems.find(item => item.id === id)
@@ -46,20 +59,29 @@ const ProductItem = ({ id, brand, name, price, inStock=true, horizontal=true, pr
   return ( 
     <div
       className={`
-        ${horizontal ? styles.productItemWide : styles.productItemTall} 
+        ${horizontal ? singlePage ? styles.largeProductItemWide : styles.productItemWide : styles.productItemTall}
         ${!inStock ? styles.outOfStock : ''}
       `}
       style={{
         width: productItemWidth || '',
       }}
     >
-      <Image
-        src={image}
-        className={styles.productImage}
-        width={150}
-        height={226}
-        alt={alt}
-      />
+      <Link
+        href={useProductSlug ? `/product/${id}/${createSlug(name)}` : '#'}
+        onClick={(e) => {
+          if (!useProductSlug) {
+            e.preventDefault()
+          }
+        }}
+      >
+        <Image
+          src={image}
+          className={`${styles.productImage} ${useProductSlug ? styles.popOnHover : ''}`}
+          width={150}
+          height={226}
+          alt={alt}
+        />
+      </Link>
       <div className={styles.productInfo}>
         {cartView && (
           <button

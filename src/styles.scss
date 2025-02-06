@@ -116,7 +116,6 @@ h4,
 h5,
 h6 {
   font-size: 2.4rem;
-  color: $primaryColor;
 }
 
 h1 {
@@ -156,7 +155,7 @@ p {
 }
 
 a {
-  color: $contrastColor;
+  color: blue;
 }
 
 sub {
@@ -183,52 +182,8 @@ footer {
   margin: 0.4rem 0;
   padding: 0.8rem 2.5rem;
   color: $white;
-  background-color: $secondaryColor;
+  background-color: $green;
   border-radius: 5rem;
-}
-
-.light {
-  font-weight: 300;
-}
-
-.semiBold {
-  font-weight: 500;
-}
-
-.bold {
-  font-weight: 700;
-}
-
-.center {
-  text-align: center;
-}
-
-.text12 {
-  font-size: 1.2rem;
-}
-
-.text14 {
-  font-size: 1.4rem;
-}
-
-.text16 {
-  font-size: 1.6rem;
-}
-
-.miniDelimiter {
-  height: 0.8rem;
-}
-
-.smallDelimiter {
-  height: 1.5rem;
-}
-
-.delimiter {
-  height: 3rem;
-}
-
-.bigDelimiter {
-  height: 5rem;
 }
 
 input,
@@ -282,6 +237,7 @@ input[type=number] {
   flex: 1;
   margin: 0 auto;
   width: 100%;
+  max-width: $maxWidthScreen;
 
   .globalMargin {
     margin: $globalMargin
