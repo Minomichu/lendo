@@ -8,9 +8,24 @@ $bigButtonRadius: 2.5rem;
   min-width: 15rem;
   background-color: $white;
 
-  .productImage {
-    height: auto;
-    width: 100%;
+  a {
+    display: inline-block;   
+
+    .productImage {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+
+    .popOnHover {
+      position: relative;
+      transition: transform 0.3s ease;
+        
+      &:hover {
+        transform: scale(1.05);
+        z-index: 10;
+      }
+    }
   }
 
   .productInfo {
@@ -100,9 +115,10 @@ $bigButtonRadius: 2.5rem;
   min-width: 28rem;
   flex-direction: row;
 
-  .productImage {
+  a .productImage {
     width: 15rem;
   }
+
   .productInfo {
     position: relative;
     padding: 0.7rem 0.7rem 0 0.7rem;
@@ -130,15 +146,62 @@ $bigButtonRadius: 2.5rem;
   }
 }
 
+.largeProductItemWide {
+  @extend .productItemWide;
+  width: 90%;
+  max-width: 100rem;
+
+
+  a .productImage,
+  .productInfo {
+    width: 50rem;
+    max-width: 100%;
+  }
+
+  .productInfo {
+    padding: 1.5rem;
+    .buttonContainer {
+      max-width: 25rem;
+      margin-top: 5rem;
+    }
+  }
+}
+
+
 .outOfStock {
   color: grey;
 
-  .productImage {
+  a .productImage {
     opacity: 0.5;
   }
 
   .productInfo .buttonContainer .addToCart {
     background-color: $disabled;
     border-radius: 0;
+  }
+}
+
+
+@media only screen and (max-width: $smallScreen) {
+  .productItemTall,
+  .productItemWide,
+  .largeProductItemWide {
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+    max-width: 90%;
+
+    a .productImage,
+    .productInfo {
+      width: 20rem;
+      max-width: 100%;
+    }
+  }
+
+  .largeProductItemWide {
+    a .productImage,
+    .productInfo {
+      width: 40rem;
+    }
   }
 }

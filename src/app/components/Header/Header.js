@@ -39,9 +39,7 @@ const Header = () => {
       className={`${styles.header} ${showNavbar ? styles.visible : ''}`}
     >
       <Link href="/"><Logo /></Link>
-      <ul className={styles.headerContent}>
-        <li>Sida 2</li>
-      </ul>
+      <p>Shopshop</p>
       <div
         className={styles.cartIcon}
         onClick={toggleCart}
