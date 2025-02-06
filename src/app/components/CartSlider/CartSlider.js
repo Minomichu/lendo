@@ -1,22 +1,38 @@
 'use client'
 import { useCart } from '@/context/CartContext'
+import ProductList from '../ProductList/ProductList'
 import styles from './CartSlider.module.scss'
 
 
 const CartSlider = () => {
-  const { showCart } = useCart()
+  const { showCart, cartItems } = useCart()
+
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
   return (
-    <ul
+    <div
       className={styles.cartSliderContainer}
       style={{
         transition: `${!showCart ? '0.5s' : '0.8s'} ease-in-out`,
         transform: showCart ? 'translateX(0)' : 'translateX(+100%)'
       }}
     >
-      <li>Vara 1</li>
-      <li>Vara 2</li>
-    </ul>
+      {cartItems.length ? (
+        <>
+          <ProductList
+            productsInList={cartItems}
+            productItemWidth="100%"
+            cartView
+          />
+          <div className={styles.bottomBlock}>
+            <p className={styles.totalPrice}>Total: <span>{totalPrice} kr</span></p>
+            <button>Go to checkout</button>
+          </div>
+        </>
+      ) : (
+        <p className={styles.nothingInCart}>Your shopping cart is empty.</p>
+      )}
+    </div>
   )
 }
  

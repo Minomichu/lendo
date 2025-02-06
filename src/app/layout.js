@@ -1,9 +1,10 @@
 import { Inter } from 'next/font/google'
-import { CartProvider } from '@/context/CartContext'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import CartSlider from './components/CartSlider/CartSlider'
 import '../styles.scss'
+import CartSlider from './components/CartSlider/CartSlider'
+import { CartProvider } from '@/context/CartContext'
+import ScrollController from './components/ScrollController'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <CartProvider>
+          <ScrollController />
         <div className='surroundingContainer'>
           <Header />
           <CartSlider />

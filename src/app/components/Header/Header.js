@@ -1,15 +1,16 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useCart } from '@/context/CartContext'
-import Logo from '@/app/icons/logo'
 import CartIcon from '@/app/icons/cart'
 import styles from './Header.module.scss'
+import Logo from '@/app/icons/logo'
+import { useCart } from '@/context/CartContext'
 
 const Header = () => {
   const [showNavbar, setShowNavbar] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
-  const { toggleCart } = useCart()
+  const { toggleCart, cartItems } = useCart()
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 
 
   useEffect(() => {
@@ -45,10 +46,11 @@ const Header = () => {
         className={styles.cartIcon}
         onClick={toggleCart}
       >
-        <CartIcon width={38} height={38} fill="pink" />
+        <p className={styles.itemsInCart}>{totalQuantity}</p>
+        <CartIcon width={38} height={38} fill="#28C166" />
       </div>
     </nav>
-  )
+   )
 }
  
 export default Header

@@ -1,0 +1,19 @@
+.rowContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  list-style-type: none;
+  margin: 0;
+
+  li {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.columnContainer {
+  @extend .rowContainer;
+  display: flex;
+  flex-direction: column;
+}

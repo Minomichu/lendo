@@ -2,21 +2,51 @@
   position: fixed;
   top: 0;
   right: 0;
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  row-gap: 4rem;
   height: 100%;
-  max-width: 40rem;
+  max-width: 35rem;
   width: 100%;
-  padding-top: $headerHeight;
-  text-align: right;
-  background-color: $websiteBackground;
+  padding: calc($headerHeight + 3rem) 2rem 2rem 2rem;
+  background-color: $green;
+  box-sizing: border-box;
   z-index: 3;
+  overflow-y: auto;
 
-  background: lavender;
+  .bottomBlock {
+    margin: 0 -2rem -2rem -2rem;
+    padding: 2.5rem 2rem 2rem 2rem;
+    font-weight: 500;
+    background-color: #F2F2F2;
 
-  li {
-    display: block;
-    margin: 0.3rem 0;
-    padding-right: 3rem;
-    background: blue;
+    p {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+      font-size: 1.6rem;
+
+      span {
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+    }
+
+    button {
+      width: 100%;
+      margin-top: 0.7rem;
+      padding: 1.5rem;
+      font-weight: 400;
+      color: $white;
+      background-color: $black;
+    }
+  }
+
+  .nothingInCart {
+    font-weight: 600;
+    text-align: center;
+    color: $white;
   }
 }
