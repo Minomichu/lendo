@@ -1,10 +1,12 @@
+$buttonHeight: 4rem;
 $bigButtonRadius: 2.5rem;
 
-.productContainerVertical {
+.productItemTall {
   display: flex;
   flex-direction: column;
   width: 20rem;
-  border: 2px solid lavender;
+  min-width: 15rem;
+  background-color: $white;
 
   .productImage {
     height: auto;
@@ -17,31 +19,33 @@ $bigButtonRadius: 2.5rem;
     justify-content: space-between;
     height: 100%;
     width: 100%;
-    padding: 0.2rem 0 0 0;
 
     p {
       margin: 0;
     }
-  
-    .brand {
-      font-size: 1.4rem;
-      text-transform: uppercase;
-    }
-    .name {
-      margin: 0.4rem 0;
-      font-size: 2rem;
-      font-weight: 400;
-    }
-    .price {
-      font-size: 1.2rem;
-      font-weight: 500;
+
+    .text {
+      padding: 0.3rem 0.5rem 0.8rem 0.5rem;
+
+      .brand {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+      }
+      .name {
+        margin: 0.4rem 0;
+        font-size: 2rem;
+        font-weight: 400;
+      }
+      .price {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
     }
   
     .buttonContainer {
-      height: 3.5rem;
+      position: relative;
+      height: $buttonHeight;
       width: 100%;
-      margin-top: 0.8rem;
-      border: 1px solid grey;
       border-radius: $bigButtonRadius;
 
       .addToCart {
@@ -50,25 +54,78 @@ $bigButtonRadius: 2.5rem;
         align-items: center;
         height: 100%;
         width: 100%;
+        color: $white;
+        background-color: $green;
         border-radius: $bigButtonRadius;
+      }
+
+      .editableInput {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-weight: 600;
+        text-align: center;
+        color: $green;
+        background-color: #f0ECE9;
+        border-radius: $bigButtonRadius;
+      }
+
+      $buttonBorder: 3px;
+      .addSubtractButton {
+        position: absolute;
+        top: $buttonBorder;
+        display: inline-block;
+        height: calc($buttonHeight - ($buttonBorder * 2));
+        width: calc($buttonHeight - ($buttonBorder * 2));
+        border-radius: $bigButtonRadius;
+
+        &:first-of-type {
+          left: $buttonBorder;
+          color: $green;
+          background-color: $white;
+        }
+        &:last-of-type {
+          right: $buttonBorder;
+          color: $white;
+          background-color: $green;
+        }
       }
     }
   }
 }
 
-.productContainerHorizontal {
-  @extend .productContainerVertical;
+.productItemWide {
+  @extend .productItemTall;
   width: 35rem;
+  min-width: 28rem;
   flex-direction: row;
 
   .productImage {
     width: 15rem;
   }
   .productInfo {
-    padding: 0 0 0 0.7rem;
+    position: relative;
+    padding: 0.7rem 0.7rem 0 0.7rem;
+    box-sizing: border-box;
+
+    .deleteButton {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.6rem;
+    }
+
+    .text {
+      margin-right: 1.5rem;
+      padding: 0;
+    }
 
     .buttonContainer {
-      margin-top: 2rem;
+      .totalItemPrice {
+        position: absolute;
+        top: -2.1rem;
+        margin: 0;
+        font-size: 1.4rem;
+      }
     }
   }
 }
@@ -80,7 +137,8 @@ $bigButtonRadius: 2.5rem;
     opacity: 0.5;
   }
 
-  .buttonContainer {
+  .productInfo .buttonContainer .addToCart {
     background-color: $disabled;
+    border-radius: 0;
   }
 }

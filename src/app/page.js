@@ -2,9 +2,9 @@
 import { useState, useEffect } from 'react'
 import products from './data/inventory.json'
 import { basicSort } from './utils/utils'
-import ProductItem from './components/ProductItem/ProductItem'
 import SearchBar from './components/SearchBar/SearchBar'
 import styles from './startpage.module.scss'
+import ProductList from './components/ProductList/ProductList'
 
 export default function Home() {
   const [filteredProducts, setFilteredProducts] = useState([])
@@ -29,17 +29,11 @@ export default function Home() {
   return (
     <div className={styles.startPageContainer}>
       <SearchBar onSearch={handleSearch} />
-      <div className={styles.productsContainer}>
-        {filteredProducts.map((product) => (
-          <ProductItem
-            key={product.id}
-            brand={product.brand}
-            name={product.name}
-            price={product.price}
-            inStock={product.available}
-          />
-        ))}
-      </div>
+      <ProductList
+        productsInList={filteredProducts}
+        columnView={false}
+        horizontal={false}
+      />
     </div>
   )
 }

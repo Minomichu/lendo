@@ -15,10 +15,16 @@ export const CartProvider = ({ children }) => {
     }
   }, [pathname])
 
+  const getCartItemQuantity = (id) => {
+    const item = cartItems.find(item => item.id === id)
+    return item ? item.quantity : 0
+  }
+
+
   const toggleCart = () => setShowCart(prev => !prev)
 
   return (
-    <CartContext.Provider value={{ showCart, setShowCart, toggleCart, cartItems, setCartItems }}>
+    <CartContext.Provider value={{ showCart, setShowCart, toggleCart, cartItems, setCartItems, getCartItemQuantity }}>
       {children}
     </CartContext.Provider>
   )
